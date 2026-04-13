@@ -18,25 +18,29 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.classList.remove('active');
 
         document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('open'));
     });
 
     // DROPDOWN MOBILE
-    document.querySelectorAll('[data-toggle="dropdown"]').forEach(link => {
-        link.addEventListener('click', (e) => {
+    document.querySelectorAll('.nav-item > .nav-link').forEach(link => {
+        const parent = link.parentElement;
+        const dropdown = parent.querySelector('.nav-dropdown');
 
+        if (!dropdown) return;
+
+        link.addEventListener('click', (e) => {
             if (window.innerWidth > 992) return;
 
             e.preventDefault();
-
-            const parent = link.parentElement;
-            const dropdown = parent.querySelector('.nav-dropdown');
-
             const isOpen = dropdown.classList.contains('open');
 
             document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-
-            if (!isOpen) dropdown.classList.add('open');
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('open'));
+            if (!isOpen) {
+                dropdown.classList.add('open');
+                parent.classList.add('open');
+            }
         });
     });
-
 });
+

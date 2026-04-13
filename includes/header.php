@@ -56,60 +56,114 @@ $base = BASE_URL;
 
     <!-- ===== NAVBAR ===== -->
     <nav class="site-navbar" id="siteNavbar">
-    <div class="nav-container">
+        <div class="nav-container">
 
-        <!-- Logo -->
-        <a href="<?= $base ?>/" class="nav-brand">
-            <?php if (file_exists(__DIR__ . '/../assets/img/logo.png')): ?>
-                <img src="<?= $base ?>/assets/img/logo.png" alt="Logo EMOVTT" class="nav-logo">
-            <?php else: ?>
-                <div class="logo-box">EMOVTT</div>
-            <?php endif; ?>
+            <!-- Logo -->
+            <a href="<?= $base ?>/" class="nav-brand">
+                <?php if (file_exists(__DIR__ . '/../assets/img/logo.png')): ?>
+                    <img src="<?= $base ?>/assets/img/logo.png" alt="Logo EMOVTT" class="nav-logo">
+                <?php else: ?>
+                    <div class="logo-box">EMOVTT</div>
+                <?php endif; ?>
 
-            <div class="brand-text">
-                <strong>Empresa de Movilidad</strong>
-                Santa Rosa &ndash; EP
-            </div>
-        </a>
-
-        <!-- Menú -->
-        <ul class="nav-menu" id="navMenu">
-
-            <li class="nav-item">
-                <a href="<?= $base ?>/" class="nav-link <?= $active_page === 'inicio' ? 'active' : '' ?>">
-                    <i class="fas fa-home"></i> Inicio
-                </a>
-            </li>
-
-            <!-- Dropdown -->
-            <li class="nav-item">
-                <a href="#" class="nav-link" data-toggle="dropdown">
-                    <i class="fas fa-newspaper"></i> Noticias
-                    <i class="fas fa-chevron-down chevron"></i>
-                </a>
-
-                <div class="nav-dropdown">
-                    <a href="<?= $base ?>/noticias">Todas las noticias</a>
-                    <a href="<?= $base ?>/noticias?cat=institucional">Institucional</a>
-                    <a href="<?= $base ?>/noticias?cat=seguridad-vial">Seguridad Vial</a>
-                    <a href="<?= $base ?>/noticias?cat=tramites">Trámites</a>
-                    <a href="<?= $base ?>/noticias?cat=proyectos">Proyectos</a>
-                    <a href="<?= $base ?>/noticias?cat=eventos">Eventos</a>
+                <div class="brand-text">
+                    <strong>Empresa de Movilidad</strong>
+                    Santa Rosa &ndash; EP
                 </div>
-            </li>
+            </a>
 
-            <!-- Agrega los demás igual -->
-        </ul>
+            <!-- Menú -->
+            <ul class="nav-menu" id="navMenu">
 
-        <!-- Acciones -->
-        <div class="nav-actions">
-            <button class="nav-hamburger" id="navHamburger">
-                <span></span><span></span><span></span>
-            </button>
+                <!-- Inicio -->
+                <li class="nav-item">
+                    <a href="<?= $base ?>/" class="nav-link <?= $active_page === 'inicio' ? 'active' : '' ?>">
+                        <i class="fas fa-home"></i> Inicio
+                    </a>
+                </li>
+
+                <!-- Noticias -->
+                <li class="nav-item dropdown">
+                    <a href="<?= $base ?>/noticias" class="nav-link <?= $active_page === 'noticias' ? 'active' : '' ?>" data-toggle="dropdown"> <i class="fas fa-newspaper"></i> Noticias
+                        <i class="fas fa-chevron-down chevron"></i>
+                    </a>
+
+                    <div class="nav-dropdown">
+                        <a href="<?= $base ?>/noticias">Todas las noticias</a>
+                        <a href="<?= $base ?>/noticias?cat=institucional">Institucional</a>
+                        <a href="<?= $base ?>/noticias?cat=seguridad-vial">Seguridad Vial</a>
+                        <a href="<?= $base ?>/noticias?cat=tramites">Trámites</a>
+                        <a href="<?= $base ?>/noticias?cat=proyectos">Proyectos</a>
+                        <a href="<?= $base ?>/noticias?cat=eventos">Eventos</a>
+                    </div>
+                </li>
+
+                <!-- Transparencia -->
+                <li class="nav-item dropdown">
+                    <a href="<?= $base ?>/transparencia" class="nav-link <?= $active_page === 'transparencia' ? 'active' : '' ?>">
+                        <i class="fas fa-eye"></i> Transparencia
+                        <i class="fas fa-chevron-down chevron"></i>
+                    </a>
+
+                    <div class="nav-dropdown">
+                        <a href="<?= $base ?>/transparencia">Información Pública</a>
+                        <a href="<?= $base ?>/transparencia?cat=loptaip">LOTAIP</a>
+                        <a href="<?= $base ?>/transparencia?cat=informes">Informes</a>
+                    </div>
+                </li>
+
+                <!-- Contactos -->
+                <li class="nav-item dropdown">
+                    <a href="<?= $base ?>/contactos" class="nav-link <?= $active_page === 'contactos' ? 'active' : '' ?>">
+                        <i class="fas fa-phone"></i> Contactos
+                        <i class="fas fa-chevron-down chevron"></i>
+                    </a>
+
+                    <div class="nav-dropdown">
+                        <a href="<?= $base ?>/contactos">Información General</a>
+                        <a href="<?= $base ?>/contactos?cat=ubicacion">Ubicación</a>
+                        <a href="<?= $base ?>/contactos?cat=soporte">Soporte</a>
+                    </div>
+                </li>
+
+                <!-- Matriculación RTV -->
+                <li class="nav-item dropdown">
+                    <a href="<?= $base ?>/matriculacion" class="nav-link <?= $active_page === 'matriculacion' ? 'active' : '' ?>">
+                        <i class="fas fa-car"></i> Matriculación RTV
+                        <i class="fas fa-chevron-down chevron"></i>
+                    </a>
+
+                    <div class="nav-dropdown">
+                        <a href="<?= $base ?>/matriculacion">Consulta</a>
+                        <a href="<?= $base ?>/matriculacion?cat=requisitos">Requisitos</a>
+                        <a href="<?= $base ?>/matriculacion?cat=turnos">Turnos</a>
+                    </div>
+                </li>
+
+                <!-- Solicitud en Línea -->
+                <li class="nav-item">
+                    <a href="<?= $base ?>/solicitudes" class="nav-link <?= $active_page === 'solicitudes' ? 'active' : '' ?>">
+                        <i class="fas fa-file-alt"></i> Solicitud en Línea
+                    </a>
+                </li>
+
+            </ul>
+            <!-- Acciones -->
+            <div class="nav-actions">
+                <button class="nav-hamburger" id="navHamburger">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+
         </div>
+    </nav>
 
-    </div>
-</nav>
+    <!-- Overlay -->
+    <div class="nav-overlay" id="navOverlay"></div>
 
-<!-- Overlay -->
-<div class="nav-overlay" id="navOverlay"></div>
+    <script>
+        document.querySelector('.dropdown-toggle-icon').addEventListener('click', function(e) {
+            e.stopPropagation();
+            this.parentElement.classList.toggle('active');
+        });
+    </script>
