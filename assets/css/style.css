@@ -393,6 +393,179 @@ img {
     transform: translateY(-7px) rotate(-45deg);
 }
 
+
+
+/* =========================================
+MOBILE PRO MAX 📱🔥=========================================*/ @media (max-width: 992px) {
+
+    /* HAMBURGUESA */
+    .nav-hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        width: 38px;
+        height: 38px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-hamburger span {
+        width: 22px;
+        height: 2px;
+        background: var(--texto);
+        transition: 0.3s;
+    }
+
+    /* ANIMACIÓN X */
+    .nav-hamburger.open span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+
+    .nav-hamburger.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-hamburger.open span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+
+    /* MENU LATERAL */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background: var(--blanco);
+        display: flex;
+        flex-direction: column;
+        padding: 80px 16px 20px;
+        gap: 6px;
+        transition: right 0.3s ease;
+        z-index: 1040;
+        overflow-y: auto;
+    }
+
+    .nav-menu.open {
+        right: 0;
+    }
+
+    /* ITEMS */
+    .nav-item {
+        width: 100%;
+    }
+
+    .nav-link {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .nav-link:hover {
+        background: #eef1f8;
+    }
+
+    /* ICONOS */
+    .nav-link i:not(.chevron) {
+        width: 20px;
+        text-align: center;
+        color: var(--azul);
+    }
+
+    /* CHEVRON */
+    .chevron {
+        margin-left: auto;
+        transition: transform 0.3s;
+    }
+
+    .nav-item.open .chevron {
+        transform: rotate(180deg);
+    }
+
+    /* DROPDOWN PRO */
+    .nav-dropdown {
+        display: block;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.3s ease, opacity 0.2s ease;
+        background: #f4f6fb;
+        border-radius: 10px;
+    }
+
+    .nav-dropdown.open {
+        max-height: 500px;
+        opacity: 1;
+    }
+
+    .nav-dropdown a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+
+    /* QUITAR HOVER BUG */
+    .nav-item:hover .nav-dropdown {
+        display: block;
+    }
+}
+
+/* =========================================
+   EXTRA SMALL 📱
+   ========================================= */
+@media (max-width: 576px) {
+
+    .nav-menu {
+        width: 90%;
+    }
+
+    .nav-link {
+        font-size: 15px;
+        padding: 12px;
+    }
+
+    .nav-dropdown a {
+        font-size: 13px;
+    }
+
+    /* OCULTAR TEXTO LOGO SI ESTORBA */
+    .brand-text {
+        display: none;
+    }
+}
+
+/* OVERLAY */
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+
+
+
+
 /* =========================================
    HERO
    ========================================= */
@@ -2435,4 +2608,3 @@ form:has(.archivo-select) {
         padding: 24px;
     }
 }
-
